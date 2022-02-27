@@ -23,7 +23,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email
 	$username = htmlentities($_POST['username']);
 	$password = md5($_POST['password']);
 	$email = htmlentities($_POST['email']);
-	
+		
 	$sql_check_user = "SELECT * FROM challenge4_users WHERE username='$username'";
 	$query_check_user = mysqli_query($link, $sql_check_user) or die(mysqli_error());
 	if(mysqli_num_rows($query_check_user) > 0)

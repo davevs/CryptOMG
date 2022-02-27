@@ -29,6 +29,7 @@ if(@$_GET['a'] == "logout"){
 Global $username2;
 $mode = MCRYPT_MODE_ECB;
 function checkAuth($username, $password){
+	$link = db();
 	if(isset($_COOKIE['authtoken'])){
 		$authtoken = decode($_COOKIE['authtoken'], 2);
 		$info = explode("|", decrypt($authtoken, $GLOBALS['cipher'], $GLOBALS['mode'], $GLOBALS['key'], $GLOBALS['iv']));

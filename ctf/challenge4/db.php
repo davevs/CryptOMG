@@ -20,6 +20,7 @@ with this program. If not, see <http://www.gnu.org/licenses/>.
 
 include "../../includes/db.inc.php";
 
+$link = db();
 $sql_create_table =  "CREATE TABLE IF NOT EXISTS challenge4_users (
 					id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 					username VARCHAR(32),
