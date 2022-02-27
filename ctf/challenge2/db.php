@@ -35,13 +35,13 @@ $create_table_articles = "CREATE TABLE IF NOT EXISTS challenge2_articles (
 						title VARCHAR(32),
 						content VARCHAR(728))";
 						
-$query_create_table_articles = mysql_query($create_table_articles);
+$query_create_table_articles = mysqli_query($create_table_articles);
 
 
 $insert_test_users = "INSERT INTO challenge2_users (id, username, password)
 			VALUES(1, 'admin', '$admin_password'),
 			      (2, 'guest', '$guest_password')";
-$query_insert_data = mysql_query($insert_test_users);
+$query_insert_data = mysqli_query($insert_test_users);
 
 $content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis 
 mollis egestas mattis. Vestibulum mattis ullamcorper ligula, eu hendrer
@@ -60,6 +60,6 @@ $insert_test_articles = "INSERT INTO challenge2_articles (id, title, content)
 for($i=1; $i<11; $i++)
 	$insert_test_articles .= " ($i, 'Article $i', '$content'), ";
 $insert_test_articles = substr($insert_test_articles, 0, strlen($insert_test_articles)-2);
-mysql_query($insert_test_articles);
+mysqli_query($insert_test_articles);
 
 ?>
