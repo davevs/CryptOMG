@@ -28,7 +28,7 @@ if(!$link)
 	die("database error");
 
 mysqli_query($link, "CREATE DATABASE IF NOT EXISTS $db_name");
-$db_select = mysqli_select_db($db_name, $link);
+$db_select = mysqli_select_db($link, $db_name);
 if(!$db_select)
 	die("can't select database");
 ?>
