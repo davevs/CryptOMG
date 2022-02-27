@@ -21,6 +21,8 @@ with this program. If not, see <http://www.gnu.org/licenses/>.
 require("../../includes/init.php");
 require("db.php");
 
+$link = new mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
 session_start();
 
 function checkAuth($username, $password){

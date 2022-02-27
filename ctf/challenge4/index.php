@@ -18,7 +18,6 @@ You should have received a copy of the GNU General Public License along
 with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-include "../../includes/db.inc.php";
 include "../../includes/init.php";
 include "db.php";
 if(@$_GET['a'] == "logout"){
