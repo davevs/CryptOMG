@@ -18,12 +18,21 @@ You should have received a copy of the GNU General Public License along
 with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-$db_host = "localhost";
-$db_user = "";
-$db_pass = "";
+
 $db_name = "cryptomg";
 
-$link = mysqli_connect($db_host, $db_user, $db_pass);
+function db () {
+	$db_host = "localhost";
+	$db_user = "";
+	$db_pass = "";
+	static $link;
+	if ($link===NULL){
+		$link = mysqli_connect($db_host, $db_user, $db_pass);
+	}
+	return $link;
+}
+
+$link = db();
 if(!$link)
 	die("database error");
 
@@ -31,4 +40,6 @@ mysqli_query($link, "CREATE DATABASE IF NOT EXISTS $db_name");
 $db_select = mysqli_select_db($link, $db_name);
 if(!$db_select)
 	die("can't select database");
+
+
 ?>

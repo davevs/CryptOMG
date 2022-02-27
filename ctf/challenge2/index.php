@@ -21,11 +21,10 @@ with this program. If not, see <http://www.gnu.org/licenses/>.
 require("../../includes/init.php");
 require("db.php");
 
-$link = new mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-
 session_start();
 
 function checkAuth($username, $password){
+	$link = db();
 	$sql_check_auth = "SELECT * FROM challenge2_users WHERE username = '$username' AND password = '$password'";
 	$query_check_auth = mysqli_query($link, $sql_check_auth);
 	if(mysqli_num_rows($query_check_auth) == 1){
