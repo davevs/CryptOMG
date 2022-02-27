@@ -36,7 +36,7 @@ function checkAuth($username, $password){
 		return true;
 	}else{
 		$sql_check_auth = "SELECT * FROM challenge4_users WHERE username='$username'";
-		$query_check_auth = mysql_query($sql_check_auth) or die(mysql_error());
+		$query_check_auth = mysql_query($link, $sql_check_auth) or die(mysql_error());
 		if(mysql_num_rows($query_check_auth)){
 			$result = mysql_fetch_array($query_check_auth);
 			if($result['password'] == $password){
