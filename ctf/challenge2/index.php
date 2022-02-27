@@ -25,7 +25,7 @@ session_start();
 
 function checkAuth($username, $password){
 	$sql_check_auth = "SELECT * FROM challenge2_users WHERE username='$username' AND password='$password'";
-	$query_check_auth = mysqli_query($sql_check_auth);
+	$query_check_auth = mysqli_query($link, $sql_check_auth);
 	if(mysqli_num_rows($query_check_auth) == 1){
 		$_SESSION['username'] = $username;
 		$_SESSION['password'] = $password;
@@ -131,9 +131,9 @@ elseif($auth == true && is_null(@$_GET['page'])){
 				if(!is_null(@$_GET['id']) && $page == "articles"){
 								$article_id = decrypt(decode(@$_GET['id'], $p_encoding), $cipher, $mode, $key, $iv);
 								$sql_get_article = "SELECT * FROM challenge2_articles WHERE id='$article_id'";
-								$query_get_article = mysqli_query($sql_get_article) or die(mysqli_error());
+								$query_get_article = mysqli_query($link, $sql_get_article) or die(mysqli_error());
 								if(mysqli_num_rows($query_get_article)){
-									while($result = mysqli_fetch_array($query_get_article)){
+									while($result = mysqli_fetch_array($link, $query_get_article)){
 										$title = $result['title'];
 										$body = $result['content'];
 										print "<h1>$title</h1>";
