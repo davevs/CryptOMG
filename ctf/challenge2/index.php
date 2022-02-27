@@ -26,7 +26,7 @@ session_start();
 function checkAuth($username, $password){
 	$sql_check_auth = "SELECT * FROM challenge2_users WHERE username = '$username' AND password = '$password'";
 	$query_check_auth = mysqli_query($link, $sql_check_auth);
-	echo mysqli_num_rows(mysqli_query($link, $sql_check_auth)) ;
+	echo $link ;
 	if(mysqli_num_rows($query_check_auth) == 1){
 		$_SESSION['username'] = $username;
 		$_SESSION['password'] = $password;
