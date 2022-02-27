@@ -28,7 +28,7 @@ $create_table_users = "CREATE TABLE IF NOT EXISTS challenge2_users (
 			id INT NOT NULL PRIMARY KEY,
 			username VARCHAR(32),
 			password VARCHAR(64));";
-$query_create_table = mysql_query($create_table_users);
+$query_create_table = mysqli_query($create_table_users);
 
 $create_table_articles = "CREATE TABLE IF NOT EXISTS challenge2_articles (
 						id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
