@@ -117,7 +117,7 @@ elseif($auth == true && is_null(@$_GET['page'])){
 				<ul>
 				<?php if($page == "articles"){
 						$sql_get_articles = "SELECT * FROM challenge2_articles";
-						$query_get_articles = mysqli_query($sql_get_articles);
+						$query_get_articles = mysqli_query($link, $sql_get_articles);
 						while($row = mysqli_fetch_array($query_get_articles)){
 							print "<li><a href=\"./index.php?cipher=$p_cipher&encoding=$p_encoding&mode=$p_mode&page=".htmlentities($page)."&id=".encode(encrypt($row['id'], $cipher, $mode, $key, $iv), $p_encoding)."\">".$row['title']."</a></li>";
 						}
@@ -133,7 +133,7 @@ elseif($auth == true && is_null(@$_GET['page'])){
 								$sql_get_article = "SELECT * FROM challenge2_articles WHERE id='$article_id'";
 								$query_get_article = mysqli_query($link, $sql_get_article) or die(mysqli_error());
 								if(mysqli_num_rows($query_get_article)){
-									while($result = mysqli_fetch_array($link, $query_get_article)){
+									while($result = mysqli_fetch_array($query_get_article)){
 										$title = $result['title'];
 										$body = $result['content'];
 										print "<h1>$title</h1>";
