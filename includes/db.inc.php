@@ -23,12 +23,12 @@ $db_user = "";
 $db_pass = "";
 $db_name = "cryptomg";
 
-$link = mysql_connect($db_host, $db_user, $db_pass);
+$link = mysqli_connect($db_host, $db_user, $db_pass);
 if(!$link)
 	die("database error");
 
-mysql_query("CREATE DATABASE IF NOT EXISTS $db_name");
-$db_select = mysql_select_db($db_name, $link);
+mysqli_query("CREATE DATABASE IF NOT EXISTS $db_name");
+$db_select = mysqli_select_db($db_name, $link);
 if(!$db_select)
 	die("can't select database");
 ?>
