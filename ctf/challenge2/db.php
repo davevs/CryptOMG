@@ -19,7 +19,6 @@ with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 include("../../includes/db.inc.php");
-include("../../includes/init.php");
 $db_name = "cryptomg";
 
 $admin_password = encode(encrypt("Cru@UJUbet69YePejEwr", $cipher, $mode, $key, $iv), 4);
