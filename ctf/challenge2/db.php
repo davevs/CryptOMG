@@ -44,23 +44,14 @@ $insert_test_users = "INSERT INTO challenge2_users (id, username, password)
 			      (2, 'guest', '$guest_password')";
 $query_insert_data = mysqli_query($link, $insert_test_users);
 
-$content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis 
-mollis egestas mattis. Vestibulum mattis ullamcorper ligula, eu hendrer
-it velit hendrerit nec. Nulla facilisi. Donec pellentesque interdum sem 
-sit amet vulputate. Suspendisse aliquam faucibus ipsum, non consequat 
-ipsum semper eget. Nam laoreet odio vitae tortor pellentesque non 
-facilisis eros ultricies. Class aptent taciti sociosqu ad litora torquent 
-per conubia nostra, per inceptos himenaeos. Vivamus metus neque, ornare 
-eu tristique quis, malesuada nec ipsum. Duis sed metus libero, a molestie 
-velit. Fusce id mi ligula, ut molestie eros. Quisque vulputate tellus commodo 
-justo luctus sodales. Donec massa enim, hendrerit non adipiscing quis, 
-gravida ac mauris.";
+$content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ollis egestas mattis. Vestibulum mattis ullamcorper ligula, eu hendrer it velit hendrerit nec. Nulla facilisi. Donec pellentesque interdum sem sit amet vulputate. Suspendisse aliquam faucibus ipsum, non consequat ipsum semper eget. Nam laoreet odio vitae tortor pellentesque non facilisis eros ultricies. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus metus neque, ornare eu tristique quis, malesuada nec ipsum. Duis sed metus libero, a molestie velit. Fusce id mi ligula, ut molestie eros. Quisque vulputate tellus commodo justo luctus sodales. Donec massa enim, hendrerit non adipiscing quis, gravida ac mauris.";
 
-$insert_test_articles = "INSERT INTO challenge2_articles (id, title, content)
-							VALUES";
-for($i=1; $i<11; $i++)
-	$insert_test_articles .= " ($i, 'Article $i', '$content'), ";
-$insert_test_articles = substr($insert_test_articles, 0, strlen($insert_test_articles)-2);
-mysqli_query($link, $insert_test_articles);
+for($i=1; $i<11; $i++){
+	$insert_test_articles = "INSERT INTO challenge2_articles (id, title, content) VALUES ($i, 'Article $i', '$content');";
+	mysqli_query($link, $insert_test_articles);
+}
+// 	$insert_test_articles .= " , ";
+// $insert_test_articles = substr($insert_test_articles, 0, strlen($insert_test_articles)-2);
+
 
 ?>
